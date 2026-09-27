@@ -70,3 +70,6 @@
 .product-card__button:hover{
     background-color: #1d4ed8;
 }
+.product-card__button--success{
+    background-color: #10b981;
+}
