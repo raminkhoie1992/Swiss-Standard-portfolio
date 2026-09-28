@@ -3,22 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product-card</title>
+    <title>Product Card</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
     <section class="product-card">
+
+        <!-- تصویر اصلی -->
         <figure class="product-card__figure">
-            <img src="prod-aks.jpg" alt="black leather wallet" class="product-card__image">
+            <img src="prod-aks.jpg"
+                 alt="black leather wallet"
+                 class="product-card__image">
         </figure>
-        <div class="product-card__info">
-          <h2 class="product-card__title">product Name</h2>
-          <p class="product-card__description"> this product description </p>
-          <span class="product-card__price">price:500$</span> 
-          <button type="button" class="product-card__button">Add to card</button>
+
+        <!-- تصاویر بندانگشتی -->
+        <div class="product-card__thumbnails">
+            <button class="thumbnail thumbnail--active" data-image="prod-aks.jpg" type="button">
+                <img src="prod-aks.jpg" alt="view 1">
+            </button>
+
+            <button class="thumbnail" data-image="prod-aks1.jpg" type="button">
+                <img src="prod-aks1.jpg" alt="view 2">
+            </button>
+
+            <button class="thumbnail" data-image="prod-aks2.jpg" type="button">
+                <img src="prod-aks2.jpg" alt="view 3">
+            </button>
         </div>
-        
+
+        <!-- اطلاعات محصول -->
+        <div class="product-card__info">
+           <h2 class="product-card__title">Product: <span class="product-card__color-name">Black</span></h2>
+            <p class="product-card__description">This is the product description.</p>
+            <span class="product-card__price">Price: $500</span>
+
+            <button type="button" class="product-card__button">Add to cart</button>
+        </div>
+
+        <!-- انتخاب رنگ -->
+        <div class="product-card__option">
+            <span class="options-label">Color:</span>
+            <div class="color-options">
+                <button class="color-option color-option--active"
+                        data-color="black"
+                        style="background:#000000"
+                        type="button"
+                        aria-label="Black"></button>
+
+                <button class="color-option"
+                        data-color="brown"
+                        style="background:#8b4513"
+                        type="button"
+                        aria-label="Brown"></button>
+
+                <button class="color-option"
+                        data-color="navy"
+                        style="background:#1e3a8a"
+                        type="button"
+                        aria-label="Navy"></button>
+            </div>
+        </div>
+
     </section>
- <script src="script.js" defer></script>   
+
+    <script src="script.js" defer></script>
 </body>
 </html>

@@ -13,3 +13,44 @@ function handleAddToCart() {
    
 }
 btn.addEventListener('click',handleAddToCart );
+//change thubmnail image by click
+
+//set varibales
+const mainImage  = document.querySelector('.product-card__image');
+const thumbnails = document.querySelectorAll('.thumbnail');
+const colors     = document.querySelectorAll('.color-option');
+const colorName= document.querySelector('.product-card__color-name');
+
+//cheack to see correct sellect of varibales
+console.log('corroct',mainImage);
+console.log('thumbnails',thumbnails);
+console.log('colors',colors);
+console.log(colorName);
+//set function  for each
+thumbnails.forEach(function (thumb){
+    thumb.addEventListener('click',function(){
+         mainImage.src = thumb.dataset.image;
+         activateThumbnail(thumb);
+       
+    })
+});
+function activateThumbnail(thumb) {
+
+    thumbnails.forEach(function (t) {
+        t.classList.remove('thumbnail--active');
+    });
+
+    thumb.classList.add('thumbnail--active');
+}
+colors.forEach(function(color){
+    color.addEventListener('click',function(){
+        activeColor(color);
+    })
+})
+function activeColor(color){
+    colors.forEach(function(c){
+        c.classList.remove('color-option--active');
+    })
+    color.classList.add('color-option--active');
+    colorName.textContent = color.dataset.color;
+}
