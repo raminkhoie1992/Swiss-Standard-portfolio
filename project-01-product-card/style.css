@@ -1,4 +1,6 @@
-/*================ RESET ================*/
+/* ============================
+   RESET
+   ============================ */
 *,
 *::before,
 *::after {
@@ -7,7 +9,9 @@
     box-sizing: border-box;
 }
 
-/*================ ROOT =================*/
+/* ============================
+   ROOT
+   ============================ */
 :root {
     --color-primary: #2563eb;
     --color-text: #1f2937;
@@ -18,14 +22,33 @@
     --border-radius: 8px;
 }
 
-/*================ PRODUCT CARD ================*/
+body {
+    font-family: system-ui, sans-serif;
+    background: #f3f4f6;
+    padding: var(--spacing-lg);
+}
+
+/* ============================
+   PRODUCTS CONTAINER
+   ============================ */
+.products-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--spacing-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* ============================
+   PRODUCT CARD
+   ============================ */
 .product-card {
-    max-width: 320px;
     background-color: var(--color-bg);
     border-radius: var(--border-radius);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
-    margin: var(--spacing-lg) auto;
+    display: flex;
+    flex-direction: column;
 }
 
 .product-card__figure {
@@ -37,7 +60,6 @@
     height: 200px;
     object-fit: cover;
     display: block;
-    transition: opacity 0.3s ease;
 }
 
 .product-card__info {
@@ -84,7 +106,9 @@
     background-color: #10b981;
 }
 
-/*================ THUMBNAILS ================*/
+/* ============================
+   THUMBNAILS
+   ============================ */
 .product-card__thumbnails {
     display: flex;
     gap: var(--spacing-sm);
@@ -118,7 +142,9 @@
     border-color: var(--color-primary);
 }
 
-/*================ COLOR OPTIONS ================*/
+/* ============================
+   COLOR OPTIONS
+   ============================ */
 .product-card__option {
     display: flex;
     align-items: center;
@@ -129,7 +155,6 @@
 .options-label {
     font-size: 0.875rem;
     color: var(--color-text);
-    margin: 0;
 }
 
 .color-options {
@@ -154,7 +179,4 @@
 .color-option--active {
     border-color: var(--color-primary);
     box-shadow: 0 0 0 2px var(--color-bg), 0 0 0 4px var(--color-primary);
-}
-.product-card__color-name {
-    color: var(--color-primary);
 }
