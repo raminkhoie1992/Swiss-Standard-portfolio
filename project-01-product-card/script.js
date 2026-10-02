@@ -1,37 +1,35 @@
 /* ============================
    1. DATA
    ============================ */
-const products = [
-    {
-        id: 1,
-        name: "Keyboard",
-        description:"this is keyboard description",
-        price: 500,
-        images: ["keyboard1-1.jpg", "keyboard1-2.jpg", "keyboard1-3.jpg"],
-        colors: [
-            { name: "black", hex: "#000000" },
-            { name: "brown", hex: "#8b4513" }
-        ]
-    },
-    {
-        id: 2,
-        name: "Mouse",
-        description: "this is mouse description",
-        price:350,
-        images: ["mouse1-1.jpg","mouse1-2.jpg","mouse1-3.jpg"],
-        colors: [
-            { name: "black", hex: "#000000" },
-            { name: "brown", hex: "#8b4513" }
-        ]
-    }
-];
+const container = document.querySelector('.products-container');
+const template  = document.querySelector('#product-card-template');
 
-
+fetch('data.json')
+    .then(function(response) {
+        // بررسی می‌کنیم آیا درخواست موفق بوده یا نه
+        if (!response.ok) {
+            throw new Error('خطای شبکه: ' + response.status);
+        }
+        // تبدیل پاسخ به فرمت JSON قابل خواندن
+        return response.json(); 
+    })
+    .then(function(data) {
+        // حالا داده‌ها آماده‌اند! پیام لودینگ را پاک کن
+        container.innerHTML = '';
+        
+        // حلقه را دقیقاً اینجا بنویس، جایی که داده‌ها موجود هستند
+        data.forEach(function(product) {
+            render(product);
+        });
+    })
+    .catch(function(error) {
+        // اگر هر خطایی (مثل پیدا نشدن فایل) رخ داد، اینجا اجرا می‌شود
+        console.error('خطا:', error);
+        container.innerHTML = '<p>خطا در دریافت اطلاعات. لطفاً صفحه را رفرش کنید.</p>';
+    });
 /* ============================
    2. DOM REFERENCES
    ============================ */
-const container = document.querySelector('.products-container');
-const template  = document.querySelector('#product-card-template');
 
 /* ============================
    3. RENDER
@@ -50,12 +48,13 @@ function render(product){
              btn.className = 'thumbnail';
              btn.dataset.image = imgSrc;
              btn.type = 'button';
-
+            
          const img = document.createElement('img');
              img.src = imgSrc;
              img.alt = 'view ' + (index + 1);
              btn.appendChild(img);
              thumbsContainer.appendChild(btn);
+         
     })
     const colorContainer=clone.querySelector('.color-options');
     product.colors.forEach(function(color,index){
@@ -69,15 +68,17 @@ function render(product){
     }
     colorContainer.appendChild(colorbtn);
     })
-    
- container.appendChild(clone);   
+    const cart_info=clone.querySelector('.product-card__info');
+    const removebtn=document.createElement('button');
+            removebtn.className="product-card__remove";
+            removebtn.textContent="Remove!";
+            removebtn.type="button";    
+
+cart_info.appendChild(removebtn);
+container.appendChild(clone);   
+
 }
 
-products.forEach(function(product){
-    render(product);
-})
-    
-    
 
 /* ============================
    4. EVENTS
@@ -91,6 +92,11 @@ container.addEventListener('click', function (e) {
 
             image.src = thumb.dataset.image;
         }
+     if(e.target.closest('.product-card__remove')) {
+        const btn = e.target.closest('.product-card__remove');
+        const card = btn.closest('.product-card');
+         card.remove(); 
+     }  
     if (e.target.closest('.color-option')) {
     const colorBtn = e.target.closest('.color-option');
     const card = colorBtn.closest('.product-card');

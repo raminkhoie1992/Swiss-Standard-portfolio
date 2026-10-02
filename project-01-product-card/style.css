@@ -16,6 +16,9 @@
     --color-primary: #2563eb;
     --color-text: #1f2937;
     --color-bg: #ffffff;
+    --color-alert: #ef4444;
+    --color-alert-hover: #dc2626;
+
     --spacing-sm: 0.5rem;
     --spacing-md: 1rem;
     --spacing-lg: 1.5rem;
@@ -87,7 +90,7 @@ body {
 }
 
 .product-card__button {
-    width: 100%;
+    width: 48%;
     padding: var(--spacing-sm) var(--spacing-md);
     background-color: var(--color-primary);
     color: var(--color-bg);
@@ -97,7 +100,25 @@ body {
     cursor: pointer;
     transition: background-color 0.3s ease;
 }
+.product-card__remove{
+     width: 48%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background-color: var(--color-alert);
+    color: var(--color-bg);
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    
+}
+.product-card__remove:hover {
+    background-color: var(--color-alert-hover);
+}
 
+.product-card__remove:active {
+    transform: scale(0.98); /* حس کلیک واقعی */
+}
 .product-card__button:hover {
     background-color: #1d4ed8;
 }

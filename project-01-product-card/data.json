@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "name": "Keyboard",
+    "description": "this is keyboard description",
+    "price": 500,
+    "images": ["keyboard1-1.jpg", "keyboard1-2.jpg", "keyboard1-3.jpg"],
+    "colors": [
+      { "name": "black", "hex": "#000000" },
+      { "name": "brown", "hex": "#8b4513" }
+    ]
+  },
+  {
+    "id": 2,
+    "name": "Mouse",
+    "description": "this is mouse description",
+    "price": 350,
+    "images": ["mouse1-1.jpg", "mouse1-2.jpg", "mouse1-3.jpg"],
+    "colors": [
+      { "name": "black", "hex": "#000000" },
+      { "name": "brown", "hex": "#8b4513" }
+    ]
+  },
+   {
+    "id": 3,
+    "name": "Mouse1",
+    "description": "this is mouse description1",
+    "price": 350,
+    "images": ["mouse1-1.jpg", "mouse1-2.jpg", "mouse1-3.jpg"],
+    "colors": [
+      { "name": "black", "hex": "#000000" },
+      { "name": "brown", "hex": "#8b4513" }
+    ]
+  }
+]
