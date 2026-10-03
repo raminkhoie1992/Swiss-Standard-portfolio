@@ -92,6 +92,12 @@ container.addEventListener('click', function (e) {
 
             image.src = thumb.dataset.image;
         }
+     if(e.target.closest('.product-card__button')){
+        const btn=e.target.closest('.product-card__button');
+        btn.textContent="Added ✓";
+        btn.classList.add('product-card__button--success');
+         btn.disabled = true;
+     }   
      if(e.target.closest('.product-card__remove')) {
         const btn = e.target.closest('.product-card__remove');
         const card = btn.closest('.product-card');
